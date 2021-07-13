@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Form from './components/Form/Form';
+import SimpleForm from './components/SimpleForm/SimpleForm'
+import Lifecycle from './components/Lifecycle/Lifecycle';
+import FetchCard from './components/FetchCard/FetchCard';
+import Resize from './components/Resize/Resize';
 
-function App() {
+const App = () => {
+  const [show, setShow] = useState(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Use Effect</h1>
+      <button onClick={() => setShow(!show)}>{show ? 'Ocultar' : 'Mostrar'}</button>
+      {show && (
+        <Resize />
+      )}
+      {/* <FetchCard /> */}
+      {/* <Lifecycle /> */}
+      {/* <Form /> */}
+      {/* <SimpleForm /> */}
     </div>
   );
 }
